@@ -52,11 +52,13 @@ int main() {
             int zHalf = (i + 1) / 2,oHalf=(n-i+1)/2;
             if (zeros[i] >= zHalf && ones[i+1] >= oHalf) {
 
-                if (abs(half - i) < tohalf || possible == -1)
+                if (abs(half - i) >= tohalf && possible != -1)
                 {
-                    possible = i;
-                    tohalf = abs(half - i);
+                    break;
                 }
+                possible = i;
+                tohalf = abs(half - i);
+
 
             }
         }
