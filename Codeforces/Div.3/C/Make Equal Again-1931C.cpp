@@ -21,7 +21,6 @@
 using namespace std;
 
 int main() {
-    // the group can have one number or max of 2 numbers 
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
