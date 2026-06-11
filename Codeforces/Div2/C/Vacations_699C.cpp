@@ -31,26 +31,15 @@ int solve(int idx=0, int last=0) { //last equals 0 for nothing, 1 for contest or
         return dp[idx][last];
 
     dp[idx][last] = MAX;
-    if (a[idx] == 3 && last == 0) {
+
+
+    dp[idx][last] = min(dp[idx][last], solve(idx + 1, 0) + 1); //leave
+
+    if((a[idx]==3 || a[idx]==1) && last!=1)
         dp[idx][last] = min(dp[idx][last], solve(idx + 1, 1));
+    if((a[idx]==3 || a[idx]==2) && last!=2)
         dp[idx][last] = min(dp[idx][last], solve(idx + 1, 2));
-    }
-    else if(a[idx]==3) {
-        if(last==2)
-            dp[idx][last] = min(dp[idx][last], solve(idx + 1, 1));
-        else if (last==1)
-            dp[idx][last] = min(dp[idx][last], solve(idx + 1, 2));
-    }
-    else if (a[idx] == 0) {
-        dp[idx][last] = min(dp[idx][last], solve(idx + 1, 0) + 1); //leave
-    }
-    else if ( a[idx] != last) {
-        dp[idx][last] = min(dp[idx][last], solve(idx + 1, a[idx]));
-        
-    }
- 
-    if(a[idx]!=0)  // as 0 already added its 1
-     dp[idx][last] = min(dp[idx][last], solve(idx + 1, 0) + 1); //leave
+
 
     return dp[idx][last];
 
