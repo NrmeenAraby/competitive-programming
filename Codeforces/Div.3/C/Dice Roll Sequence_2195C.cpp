@@ -74,16 +74,13 @@ int main() {
     t = 1;
     cin >> t;
     while (t--) {
-        cin >> n;
-        a.resize(n);
-        for (int i = 0; i < n; i++) {
-            cin >> a[i];           
-        }
-        if (n == 1) {
-            cout << 0 << endl;
-        }
-        else {
-            //memset(dp, -1, sizeof dp);       // this causes TLE, as it is mentioned in the stament that sum of n over all test cases does not exceed 3*10^5          
+            cin >> n;
+            a.resize(n);
+            for (int i = 0; i < n; i++) {
+                cin >> a[i];           
+            }
+   
+            //memset(dp, -1, sizeof dp);       // this causes TLE, as it is mentioned in the statment that sum of n over all test cases does not exceed 3*10^5          
             for (int i = 0; i <= n; i++) {
                 for (int j = 1; j <= 6; j++) {
                     dp[i][j] = -1;
@@ -91,7 +88,7 @@ int main() {
             }
 
             int ans = 1e9;
-            int last_used = -1;
+            int last_used = 0;
             for (int i = 1; i <= 6; i++) {
                 int ret = solve(1, i);
                 if (ret< ans) {
@@ -106,7 +103,7 @@ int main() {
                 ans++;
             }
             cout << ans << endl;
-        }
+        
     }
     return 0;
 }
