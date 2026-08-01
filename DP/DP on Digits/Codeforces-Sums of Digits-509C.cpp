@@ -28,22 +28,7 @@ ll add(ll a, ll b) {
 ll sub(ll a, ll b) {
     return ((a % MOD) - (b % MOD) + MOD) % MOD;
 }
-vector<pair<int, int>>prime_factors;
-void factorize(int n) {
-    for (int i = 2; i * i <= n; i++) {
-        int power = 0;
-        while (n % i == 0) {
-            power++;
-            n /= i;
-        }
-        if (power) {
-            prime_factors.push_back({ i,power });
-        }
-    }
-    if (n != 1) {
-        prime_factors.push_back({ n,1 });
-    }
-}
+
 //__builtin_popcount(mask)
 const int N = 500;
 int sum;
